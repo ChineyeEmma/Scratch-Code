@@ -1,0 +1,52 @@
+# Leet Code
+
+/* WRITE A STATIC METHOD NAMES LONGESTWORD THAT ACCEPTS A STRING
+AS ITS PARAMETER AND RETURNS THE LENGTH OF THE LONGEST WORD IN THE STRING. 
+A WORD IS A SEQUENCE OF ONE OR MORE NON-SPACE CHARCTERS(ANY CHARACTER OTHER 
+THAN THE SPACE CHARACTER. ‘ ‘.) */
+
+//EX: 
+//LONGESTWORD(“TO BE OR NOT TO BE”) → 3
+//LONGESTWORD(“OH HELLO, HOW ARE YOU?”) → 6
+//LONGESTWORD(“I AM OK”) → 2
+//LONGESTWORD(“”) → 0
+//LONGESTWORD(“   “) → 0
+
+
+public static void main(String args[]) {
+        
+        String str = "  my name     is barry allen    and    I am the fastest man   alive ";
+        
+        System.out.print(longestWord(str));
+    }
+    
+public static int longestWord(String str){
+
+	int longest = 0;
+	boolean inword = false;
+	int count = 0;
+	
+	//if no letters, the longest is 0
+	if(str.length() == 0){ return 0;}
+
+	//loop thru the string
+	    for (int i = 0; i < str.length(); i++){
+	
+	    	if(!(str.charAt(i) == ' ')){ //if a letter is found
+			
+			    inword = true;
+			    count++;
+
+            } else if(str.charAt(i) == ' '){//if a space is found
+	
+	            	    if (count > longest){ longest = count;}
+	           	    	count = 0;
+        	    	    inword = false;
+
+            }
+	
+	    }
+	    
+	    return longest;
+
+   }
