@@ -1,0 +1,19 @@
+#Leet Code
+
+//20879
+public static int digitsum(int x){
+
+	int total = 0;
+	int num = x;
+
+	    while(num > 0){ //loop while num is greater than 0
+
+          total += (num % 10);//take in that remainder num and add it to   //the sum
+
+		      num = num / 10;  //chop off the last digit
+
+	    }
+
+	    return total;
+
+}
