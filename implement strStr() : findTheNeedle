@@ -1,0 +1,45 @@
+public class Solution {
+    
+    public static void main(String args[]){
+        
+        System.out.print(strStr("barryallen", "a"));
+    }
+    
+    public static int strStr (String haystack, String needle){
+
+	       if ( haystack.length() == 0 || needle.length() == 0 
+                    || haystack == null || needle == null || 
+                    needle.length() > haystack.length() ) { return -1; }
+
+            for (int i = 0; i < haystack.length() - needle.length(); i++){
+
+	                int j; //increase scope, for after loop check
+
+	                for (j = 0; j < needle.length(); j++){
+
+		                //check if the point of haystack that we are 
+		                // looking at are equal
+		                if (haystack.charAt(i + j) != needle.charAt(j)){
+
+                            break;		
+		                }
+                        
+		                //if it doesn’t break, that means they match, so progress		     
+	                }
+	                
+	                if (j == needle.length()){
+		                    
+		                    return i;
+	                }
+            }
+	            //check if we got to the end of needle, bc if we did
+	            //that means that we looped thru the entire thing without 
+		        //breaking so that means we found the first occurance of it
+		        //we can exit the method and return the point in haystack
+		        //where we first found the needle
+            
+        return -1;
+        
+    }
+    
+}
