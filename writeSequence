@@ -1,0 +1,41 @@
+public static void writeSequence(int n) {
+       
+       
+       if (n <  1){
+              
+              throw new IllegalArgumentException();
+              
+       } else {
+              
+              int m = n%2 == 0? n/2: n/2+1;
+              boolean isEvenOrOdd = n % 2 == 0;
+               //helper method, m is how we calc the number, and the second is a boolean for 
+               //whether it is an odd or even num
+              writeSequence(m , isEvenOrOdd); 
+              
+       }
+}
+
+
+private static void writeSequence(int n, boolean type) {
+       
+       
+       if (n == 1){
+              
+              System.out.print(n + " ");
+              
+              if (type){
+                     
+                     System.out.print(n + " ");
+              }
+              
+       } else {
+              
+              
+              System.out.print(n + " ");
+              writeSequence(n - 1, type);
+              System.out.print(n + " ");
+              
+              
+       }
+}
