@@ -1,0 +1,65 @@
+#16ms time, i know it's bad but i'll hopefully understand XOR and improve this soon
+#i just wanted to practice my work with Hashing/HashMaps
+
+import java.util.HashMap;
+
+public class Solution {
+    
+    public static void main(String args[]){
+        
+        int [] nums = {1,1,1,1,2,1,1,1};
+        
+        System.out.print(singleNumber(nums));
+        
+    }
+    
+   public static int singleNumber(int[] nums){
+
+        //create HashMap to keep track of the String from the array as the //Key, and the Value is the Integer repping the frequency
+    	HashMap<Integer, Integer> checkFreq = new HashMap<Integer, Integer>();
+	
+        for (Integer key: nums){ //loop for the length of the array
+
+            	Integer freq = checkFreq.get(key); //refers to value, related to key
+
+	            //check if null,if not null then increment the value/frequency
+	            if (freq == null){
+
+                      //if this String has never been entered, add 1 to freq
+		              checkFreq.put(key, 1);
+		              
+		              //System.out.println(" new item " + key + " " + freq);
+
+
+            	} else {
+
+		                //if it is in the map already, just increment the value aka freq
+	           	        checkFreq.put(key, (freq + 1));
+
+	            }
+	            
+        }
+        
+        //System.out.println("Checkin" + checkFreq.get(2));
+        
+        //loop thru the new map, and check if any of the values are eqaul to 1
+        for (Integer key : checkFreq.keySet()){
+            
+            //get the value that is at that key, check if the val is 1
+            if (checkFreq.get(key) == 1){
+                
+               // System.out.println("single key" + key);
+                
+                return key;
+                
+            }
+            
+        }
+        
+        
+    return -10;
+
+    }
+
+    
+}
