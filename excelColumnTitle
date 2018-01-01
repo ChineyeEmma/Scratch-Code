@@ -1,0 +1,43 @@
+#LeetCode
+//EXCEL SHEET COLUMN TITLE
+Given a positive integer, return its corresponding column title as appear in an Excel sheet.
+
+For example:
+     1 ->  A
+     2 ->  B
+     3 ->  C
+    26 ->  Z
+    27 -> AA
+    28 -> AB 
+    
+public class MyClass {
+
+   	public static void main(String[] args){
+    
+              System.out.println(convertToTitle(704));
+              
+    }
+      
+   public static String convertToTitle(int n){
+   
+        String result = "";
+        
+        int x = n;
+        
+        while (x > 0){
+            
+        	        x--; //compensating for zero base
+           
+      	          char c = (char) (x % 26 + 'A'); //casting the new x, to char adding it to ur base case/num
+                                            
+                  result = c + result;  //concat
+           
+                  x /= 26; //reassign and divide
+           
+    		}
+         
+    return result; //AA
+    
+   	}
+    
+}
