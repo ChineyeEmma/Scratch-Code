@@ -1,0 +1,52 @@
+#LeetCode
+/*
+Given an array of size n, find the majority element. The majority element is the element that appears more than⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element always exist in the array. 
+*/
+
+import java.util.HashMap;
+
+public class MyClass {
+    
+    public static void main(String args[]) {
+        
+        int [] nums = {1,2,4,4,4};
+
+        System.out.println(majorityElement(nums));
+    }
+    
+     public static int majorityElement(int [] nums){
+        
+	    int majority = nums.length / 2;
+        
+	    HashMap<Integer, Integer> mapEl = new HashMap<Integer, Integer>();
+	
+	    for (int n : nums){
+            
+		    Integer freq = mapEl.get(n);
+            
+		    if (freq == null){
+                
+			    mapEl.put(n, 1); //add one to the value
+                
+		    } else {
+                
+			mapEl.put(n, freq + 1);
+                
+		    }
+	    }
+        
+	    for (int n : mapEl.keySet()){
+        
+		    if (mapEl.get(n) > majority) {
+            
+			    return n;
+       		    }
+	    }
+        
+    return -1; //no majority element
+
+    }
+    
+}
+	
