@@ -1,0 +1,43 @@
+#LEET CODE
+#100DAYSOFCODE
+
+//need to solve issue of 1 - 2 elements
+
+import java.util.*;
+
+public class Solution {
+    
+    public static void main(String args[]) {
+       
+        int [] test = {3, 0, 1};
+        
+        System.out.print(missingNumber(test));
+        
+    }
+    
+    
+    public static int missingNumber(int[] nums) {
+        
+        //sort the array
+        Arrays.sort(nums);
+        int spot = 0;
+        
+        for (int n = nums[0]; n < nums.length; n++){
+            
+            
+            if (n != nums[spot]){
+                
+                return n;
+                
+            }
+            
+            spot++;
+            
+        }
+    
+    return -1;
+        
+    }
+    
+}
+
