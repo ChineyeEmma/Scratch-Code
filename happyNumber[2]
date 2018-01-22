@@ -1,0 +1,57 @@
+#LEETCODE
+#100DAYSOFCODE
+public class Solution {
+    
+    public static void main(String args[]) {
+        
+        System.out.print(isHappy(19));
+        
+    }
+    
+    public static boolean isHappy(int n) {
+        
+        if (n == 0) { return true; }
+        
+        int result = (n < 0) ? n * -1 : n;
+        int sum = 0;
+        
+        
+            while (result > 0){
+            
+                sum += (result % 10) * (result % 10); 
+            
+                result /= 10;
+                
+                //check if the num got to zero, check if happy
+                if (result <= 0){
+                    
+                     System.out.print("sum " + sum);
+
+                    
+                    if (sum == 1) {
+                        
+                        return true; //is happy
+                        
+                    } else if (sum < 10){ //got num to zero, but isn't happy
+                    
+                        return false;
+                        
+                    } else { //the sum is over 10, so break it up and look for joy
+                    
+                        result = sum;
+                        
+                        sum = 0;
+                    
+                    }
+                    
+                }
+                
+            }
+            
+        
+        
+        return false;
+        
+    }
+
+}
