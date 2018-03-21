@@ -1,0 +1,33 @@
+/** a semi perfect number is a number who's divisors add up to the number itself
+** so return true of some additive of the number adds up to the number itself
+**/
+
+
+public class MyClass {
+    public static void main(String args[]) {
+        
+    int [] divisors = {1,2,5,7,10,14,35,70};    
+    int value = 70;
+    System.out.print(semi(divisors, value));
+
+    }
+    
+    public static boolean semi(int [] divisors, int value){
+        
+        return semiHelp(divisors, value, 0);
+    }
+    
+    private static boolean semiHelp(int [] divisors, int value, int pos){
+        
+        if (value == 0){
+            return true;
+        } else if (pos == divisors.length || value < 0) {
+            return false;
+        } else {
+            0o
+            return semiHelp(divisors, value - divisors[pos], pos + 1) || 
+            semiHelp(divisors, value, pos + 1);
+        }
+        
+    }
+}
